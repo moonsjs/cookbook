@@ -31,5 +31,5 @@ bun run build && bun run start
   plus `_404.tsx` / `_error.tsx` kustom.
 - `src/server/**` — `serverFn` (`notes.server.ts`, `info.server.ts`).
 - `src/api/**` — endpoint HTTP mentah (`upload.ts`).
-- `src/shared/**` — skema & helper lintas sisi (`schemas.ts`, `rate-limit.ts`).
+- `src/shared/**` — skema & helper lintas sisi (`schemas.ts`).
 - `test/**` — unit + `createTestServer` (loader → payload `searchParams`).

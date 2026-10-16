@@ -1,6 +1,7 @@
 import { defineConfig } from "@moonsjs/core";
-import { createRateLimiter } from "./src/shared/rate-limit";
+import { createRateLimiter, getClientIp } from "@moonsjs/server";
 
+// J.3: limiter bawaan `@moonsjs/server` (sliding-window) + kunci IP tepercaya.
 const rpcLimiter = createRateLimiter({ limit: 30, windowMs: 1_000 });
 
 /**
@@ -29,14 +30,16 @@ export default defineConfig({
     url: req.url,
     demoUser: readDemoUser(req),
   }),
-  // Rate limit sebagai middleware global (A3) — bukan fitur core; lihat
-  // docs/site/panduan/rate-limit.md.
+  // Rate limit sebagai middleware global (A3/J.3) — bukan fitur core; lihat
+  // docs config. Kunci memakai `getClientIp` (header `x-moons-client-ip` yang
+  // SELALU ditimpa server, Addendum J.1): `x-forwarded-for` mentah dari klien
+  // tidak pernah dipercaya.
   middleware: [
     async ({ req, next }) => {
       const url = new URL(req.url);
       if (url.pathname.startsWith("/_moons/fn/")) {
-        const key = req.headers.get("x-forwarded-for") ?? "local";
-        const decision = rpcLimiter(key);
+        const key = getClientIp(req) ?? "unknown";
+        const decision = rpcLimiter.check(key);
         if (!decision.ok) {
           return new Response("rate limit terlampaui", {
             status: 429,
