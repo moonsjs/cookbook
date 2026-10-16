@@ -8,13 +8,13 @@ export interface Post {
 export const POSTS: readonly Post[] = [
   {
     slug: "hello",
-    title: "Halo dari blog statis",
-    body: "Halaman ini di-prerender saat build (D.5) dan dilayani sebagai file HTML.",
+    title: "Hello from the static blog",
+    body: "This page is prerendered at build time (D.5) and served as an HTML file.",
   },
   {
     slug: "kedua",
-    title: "Catatan kedua",
-    body: "Tambah post → tambah file di dist/client/blog/<slug>/index.html.",
+    title: "Second post",
+    body: "Add a post → add a file at dist/client/blog/<slug>/index.html.",
   },
 ];
 

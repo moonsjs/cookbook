@@ -7,13 +7,13 @@ export const loader = async () => ({
   requestId: (await whoami({ input: {} })).requestId,
   patterns: new Map<string, string>([
     ["search", "Query param + useSearchParams + Link search"],
-    ["mutate", "serverFn + refresh() pasca-mutasi"],
-    ["guard", "Validasi dua sisi (schema yang sama) + error server"],
-    ["session", "Cookie → ctx → DB (Drizzle), auth minimum (A3)"],
+    ["mutate", "serverFn + refresh() after mutation"],
+    ["guard", "Two-sided validation (same schema) + server error"],
+    ["session", "Cookie → ctx → DB (Drizzle), minimal auth (A3)"],
     ["login", "serverFn login + setCookie (D.2)"],
-    ["dashboard", "CRUD + Drizzle (Tahap 3)"],
+    ["dashboard", "CRUD + Drizzle (Stage 3)"],
     ["blog", "SSG prerender (D.5)"],
-    ["notes/[id]", "Dynamic route + loader memanggil serverFn in-process"],
+    ["notes/[id]", "Dynamic route + loader calls serverFn in-process"],
   ]),
 });
 
@@ -34,7 +34,7 @@ export default function IndexPage() {
         ))}
       </ul>
       <p className="meta">
-        Verifikasi cepat: <code>moons check</code> (typegen → tsc → build).
+        Quick verification: <code>moons check</code> (typegen → tsc → build).
       </p>
     </section>
   );

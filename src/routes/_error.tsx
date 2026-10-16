@@ -6,16 +6,16 @@ export default function RouteError() {
   const label =
     error instanceof Error
       ? error.message
-      : "Terjadi kesalahan internal (production tidak mengirim detail).";
+      : "Internal error (production does not send details).";
 
   return (
     <div className="shell">
-      <h1>Terjadi kesalahan</h1>
+      <h1>Something went wrong</h1>
       <pre className="error" role="alert" style={{ whiteSpace: "pre-wrap" }}>
         {label}
       </pre>
       <p className="meta">
-        <Link to="/">Coba lagi dari Cookbook</Link>
+        <Link to="/">Try again from Cookbook</Link>
       </p>
     </div>
   );

@@ -41,7 +41,7 @@ export default defineConfig({
         const key = getClientIp(req) ?? "unknown";
         const decision = rpcLimiter.check(key);
         if (!decision.ok) {
-          return new Response("rate limit terlampaui", {
+          return new Response("rate limit exceeded", {
             status: 429,
             headers: { "retry-after": String(Math.max(1, Math.ceil(decision.retryAfterMs / 1000))) },
           });

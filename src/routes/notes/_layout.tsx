@@ -8,7 +8,7 @@ import type { ReactNode } from "react";
 export default function NotesLayout(props: { children?: ReactNode }) {
   return (
     <section data-layout="notes">
-      <p className="meta">bagian notes — layout bersarang (root → notes → page)</p>
+      <p className="meta">notes section — nested layout (root → notes → page)</p>
       {props.children}
     </section>
   );

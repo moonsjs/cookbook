@@ -18,7 +18,7 @@ export default function GuardPage() {
     if (!bypassClientValidation) {
       const parsed = greetInput.safeParse({ name });
       if (!parsed.success) {
-        setError("Client check: nama harus 1–40 karakter (belum menyentuh server).");
+        setError("Client check: name must be 1–40 characters (server not touched yet).");
         return;
       }
     }
@@ -36,7 +36,7 @@ export default function GuardPage() {
     <section>
       <h1>Guard</h1>
       <p className="meta">
-        `env()` hanya hidup di `.server.ts`; input divalidasi ulang di server (E_INPUT_INVALID).
+        `env()` only lives in `.server.ts`; input is re-validated on the server (E_INPUT_INVALID).
       </p>
       <p>
         <input
@@ -45,7 +45,7 @@ export default function GuardPage() {
           onChange={(event) => setName(event.target.value)}
         />{" "}
         <button id="greet-send" type="button" onClick={() => void submit(false)}>
-          Kirim
+          Send
         </button>{" "}
         <button id="greet-bypass" type="button" onClick={() => void submit(true)}>
           Bypass client check

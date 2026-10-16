@@ -13,16 +13,16 @@ export default function SessionPage() {
     <section>
       <h1>Session</h1>
       <p data-user={data.user?.name ?? "none"}>
-        {data.user === null ? "belum login" : `hai, ${data.user?.name}!`}
+        {data.user === null ? "not logged in" : `hi, ${data.user?.name}!`}
       </p>
       {data.user !== null ? (
         <p className="meta">
-          db: user #{data.user?.id} · dibuat {data.user?.createdAt}
+          db: user #{data.user?.id} · created {data.user?.createdAt}
         </p>
       ) : null}
       <p className="meta">
-        Masuk lewat <Link to="/login">/login</Link> — serverFn men-set cookie HttpOnly
-        (helper D.2), user disimpan di Drizzle (`users`).
+        Sign in via <Link to="/login">/login</Link> — the serverFn sets an HttpOnly cookie
+        (helper D.2); the user is stored in Drizzle (`users`).
       </p>
     </section>
   );

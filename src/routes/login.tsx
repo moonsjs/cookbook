@@ -15,7 +15,7 @@ export default function LoginPage() {
     setError(null);
     const trimmed = name.trim();
     if (trimmed.length === 0 || trimmed.length > 40) {
-      setError("Nama harus 1–40 karakter.");
+      setError("Name must be 1–40 characters.");
       return;
     }
     try {
@@ -30,15 +30,15 @@ export default function LoginPage() {
     <section>
       <h1>Login</h1>
       <p data-user={data.user?.name ?? "none"}>
-        status: {data.user === null ? "belum login" : `login sebagai ${data.user?.name}`}
+        status: {data.user === null ? "not logged in" : `logged in as ${data.user?.name}`}
       </p>
       <p>
         <input
           value={name}
           onChange={(event) => setName(event.currentTarget.value)}
-          placeholder="nama"
+          placeholder="name"
         />
-        <Button onClick={submit}>Masuk</Button>
+        <Button onClick={submit}>Sign in</Button>
       </p>
       {error !== null ? <p role="alert">{error}</p> : null}
     </section>

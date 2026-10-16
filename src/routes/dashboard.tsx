@@ -54,7 +54,7 @@ export default function DashboardPage() {
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button variant="outline" size="sm">
-              aksi
+              actions
             </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end">
@@ -77,10 +77,10 @@ export default function DashboardPage() {
           <Input
             value={title}
             onChange={(event) => setTitle(event.currentTarget.value)}
-            placeholder="todo baru"
+            placeholder="new todo"
           />
           <Button data-action="create" onClick={add}>
-            Tambah
+            Add
           </Button>
         </p>
         <ul data-todos={data.todos.length}>
@@ -98,15 +98,15 @@ export default function DashboardPage() {
               <Dialog>
                 <DialogTrigger asChild>
                   <Button variant="destructive" size="sm">
-                    hapus
+                    delete
                   </Button>
                 </DialogTrigger>
                 <DialogContent>
-                  <DialogTitle>Hapus todo?</DialogTitle>
+                  <DialogTitle>Delete todo?</DialogTitle>
                   <DialogDescription>{todo.title}</DialogDescription>
                   <DialogFooter>
                     <DialogClose asChild>
-                      <Button variant="outline">Batal</Button>
+                      <Button variant="outline">Cancel</Button>
                     </DialogClose>
                     <Button
                       variant="destructive"
@@ -114,7 +114,7 @@ export default function DashboardPage() {
                         void remove(todo.id);
                       }}
                     >
-                      Ya, hapus
+                      Yes, delete
                     </Button>
                   </DialogFooter>
                 </DialogContent>

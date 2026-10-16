@@ -10,8 +10,8 @@ export const loader = async () => ({
 
 /** Addendum B.1: meta bertipe dari data loader (dipakai di `<title>`). */
 export const meta: RouteMetaFn<typeof loader> = ({ data }) => ({
-  title: `Mutate — ${data.notes.length} catatan — Cookbook`,
-  description: "Contoh mutasi serverFn + refresh() (Addendum A.3).",
+  title: `Mutate — ${data.notes.length} note${data.notes.length === 1 ? "" : "s"} — Cookbook`,
+  description: "Example serverFn mutation + refresh() (Addendum A.3).",
 });
 
 export default function MutatePage() {
@@ -25,7 +25,7 @@ export default function MutatePage() {
     // Validasi sisi client memakai schema yang sama dengan serverFn (§7.3).
     const parsed = addNoteInput.safeParse({ title });
     if (!parsed.success) {
-      setError("Judul harus 1–80 karakter.");
+      setError("Title must be 1–80 characters.");
       return;
     }
 
@@ -41,16 +41,16 @@ export default function MutatePage() {
   return (
     <section>
       <h1>Mutate</h1>
-      <p className="meta">Tambah catatan → `refresh()` → daftar dirender ulang dari server.</p>
+      <p className="meta">Add a note → `refresh()` → list re-rendered from the server.</p>
       <p>
         <input
           id="note-title"
           value={title}
-          placeholder="judul catatan"
+          placeholder="note title"
           onChange={(event) => setTitle(event.target.value)}
         />{" "}
         <button id="note-add" type="button" onClick={() => void submit()}>
-          Tambah
+          Add
         </button>
       </p>
       {error !== null && (
@@ -68,7 +68,7 @@ export default function MutatePage() {
           </li>
         ))}
       </ul>
-      {data.notes.length === 0 && <p className="meta">Belum ada catatan.</p>}
+      {data.notes.length === 0 && <p className="meta">No notes yet.</p>}
     </section>
   );
 }

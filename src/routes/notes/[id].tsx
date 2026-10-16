@@ -10,7 +10,7 @@ export const loader = async ({ params }: LoaderArgs<"/notes/[id]">) => ({
 export const meta: RouteMetaFn<typeof loader> = ({ data }) =>
   data.note === null
     ? { title: "Note not found — Cookbook" }
-    : { title: `${data.note.title} — Cookbook`, description: "Contoh dynamic route + meta." };
+    : { title: `${data.note.title} — Cookbook`, description: "Example dynamic route + meta." };
 
 export default function NotePage() {
   const data = useLoaderData<typeof loader>();
@@ -24,9 +24,9 @@ export default function NotePage() {
     <section>
       <h1>{data.note.title}</h1>
       <p className="meta">
-        id {data.note.id} · dibuat {data.note.createdAt.toISOString()}
+        id {data.note.id} · created {data.note.createdAt.toISOString()}
       </p>
-      <Link to="/mutate">Kembali ke daftar</Link>
+      <Link to="/mutate">Back to list</Link>
     </section>
   );
 }

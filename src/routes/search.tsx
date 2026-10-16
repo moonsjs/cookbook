@@ -18,7 +18,7 @@ export default function SearchPage() {
       <h1>Search</h1>
       <div className="toolbar">
         <Link to="/search" search={{ q: undefined }}>
-          semua
+          all
         </Link>
         {ITEMS.map((item) => (
           <Link key={item} to="/search" search={{ q: item }}>
@@ -35,7 +35,7 @@ export default function SearchPage() {
           <li key={item}>{item}</li>
         ))}
       </ul>
-      {data.results.length === 0 && <p>Tidak ada hasil untuk “{data.q}”.</p>}
+      {data.results.length === 0 && <p>No results for “{data.q}”.</p>}
     </section>
   );
 }

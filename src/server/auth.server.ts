@@ -50,5 +50,5 @@ export const whoamiToken = serverFn({
   input: z.object({}),
   output: z.string(),
   // Demonstrasi env() rahasia di serverFn: tidak pernah dikirim ke client.
-  handler: async () => env<string>("COOKBOOK_PREFIX") || "hai",
+  handler: async () => env<string>("COOKBOOK_PREFIX") || "hi",
 });

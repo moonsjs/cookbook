@@ -8,7 +8,7 @@ export default function BlogIndex() {
   return (
     <section>
       <h1>Blog</h1>
-      <p className="meta">SSG: file statis di dist/client/blog/** (Addendum D.5).</p>
+      <p className="meta">SSG: static files in dist/client/blog/** (Addendum D.5).</p>
       <ul>
         {POSTS.map((post) => (
           <li key={post.slug}>

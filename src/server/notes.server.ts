@@ -39,7 +39,7 @@ export const greetFromEnv = serverFn({
   input: greetInput,
   output: z.string(),
   handler: async ({ input }) => {
-    const prefix = env<string>("COOKBOOK_PREFIX") || "halo";
+    const prefix = env<string>("COOKBOOK_PREFIX") || "hello";
     return `${prefix}, ${input.name}! (req ${env<string>("COOKBOOK_REQ") || "-"})`;
   },
 });

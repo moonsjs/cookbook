@@ -10,5 +10,5 @@ export const loader = async ({ req }: LoaderArgs<"/go">) => {
 };
 
 export default function GoPage() {
-  return <p>Mengalihkan…</p>;
+  return <p>Redirecting…</p>;
 }
