@@ -1,0 +1,13 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "noEmit": true
+  },
+  "include": [
+    "src",
+    "test",
+    ".moons/**/*.d.ts",
+    "moons.config.ts",
+    "vite.config.ts"
+  ]
+}

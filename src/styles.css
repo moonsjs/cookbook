@@ -1,0 +1,15 @@
+@import "tailwindcss";
+
+/* Sedikit base agar daftar & tombol nyaman dilihat (contoh, bukan design system). */
+.shell {
+  @apply mx-auto max-w-2xl p-6 font-sans;
+}
+.nav {
+  @apply mb-6 flex flex-wrap gap-3 text-sm;
+}
+.nav a {
+  @apply underline decoration-slate-300 hover:decoration-slate-500;
+}
+.meta {
+  @apply text-sm text-slate-500;
+}
